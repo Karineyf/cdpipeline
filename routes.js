@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const service = require('./service')
+const service =       require('./service')
 
 router.get('/', (req, res) => {
   res.json(service.getAllItems())
@@ -8,11 +8,17 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const item = service.getItemById(parseInt(req.params.id))
+ 
   if (!item) return res.status(404).json({ message: 'Item not found' })
   res.json(item)
 })
 
 router.post('/', (req, res) => {
+
+
+
+
+  
   const item = service.createItem(req.body)
   res.status(201).json(item)
 })
