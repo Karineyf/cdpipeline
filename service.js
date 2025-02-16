@@ -1,5 +1,5 @@
 let items = []
-
+const unusedVar = 5;
 const getAllItems = () => items
 const getItemById = (id) => items.find((item) => item.id === id)
 const createItem = (item) => {
