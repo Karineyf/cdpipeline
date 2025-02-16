@@ -5,6 +5,8 @@ const getItemById = (id) => items.find((item) => item.id === id)
 const createItem = (item) => {
   item.id = items.length + 1
   items.push(item)
+  item.id = items.length + 1
+  items.push(item)
   return item
 }
 const updateItem = (id, data) => {
