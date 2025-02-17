@@ -45,4 +45,5 @@ jobs:
           chmod +x /usr/local/bin/gitleaks
 
       - name: Run Gitleaks for secret scanning
-        run: gitleaks detect
+        run: |
+          gitleaks detect
