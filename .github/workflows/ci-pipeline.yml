@@ -38,3 +38,15 @@ jobs:
 
       - name: Run security scan with Snyk
         run: snyk test --all-projects
+
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Install Gitleaks
+        run: |
+          brew install gitleaks
+
+      - name: Run Gitleaks for secret scanning
+        run: |
+          gitleaks detect --source=. --no-git
