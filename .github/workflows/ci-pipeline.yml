@@ -33,5 +33,17 @@ jobs:
       - name: Install Snyk
         run: npm install -g snyk
 
+      - name: Snyk Auth
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
       - name: Run security scan with Snyk
-        run: snyk test
+        run: snyk test --all-projects
+
+      - name: Install Gitleaks
+        run: |
+          curl -sSL https://github.com/zricethezav/gitleaks/releases/download/v8.0.1/gitleaks-linux-amd64 -o /usr/local/bin/gitleaks
+          chmod +x /usr/local/bin/gitleaks
+
+      - name: Run Gitleaks for secret scanning
+        run: |
+          gitleaks detect
